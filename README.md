@@ -1,4 +1,4 @@
-# Projeto de Web Scraping para Oportunidades de Estágio
+# Projeto acheEstagio - Web Scraping para Oportunidades de Estágio
 
 Este projeto tem como objetivo reunir e organizar oportunidades de estágio disponíveis em um site específico, utilizando técnicas de web scraping com Python, Selenium e BeautifulSoup.
 
@@ -30,3 +30,7 @@ Atualmente, o projeto utiliza o **SafariDriver**, mas essa escolha é temporári
 2. Instale as dependências necessárias:
    ```bash
    pip install selenium beautifulsoup4 pandas
+3. Baixe o driver da versão atual(https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari)
+4. Execute o script:
+    ```bash
+    python finder.py
