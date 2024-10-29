@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.parse import quote
@@ -55,12 +54,10 @@ estados = {
     27: ['Tocantins', 'TO']
 }
 
-# Exibindo as opções para o usuário
 print("Escolha o estado para buscar vagas de estágio:")
 for numero, estado in estados.items():
     print(f"{numero}. {estado[0]} ({estado[1]})")
 
-# Solicitando a escolha do usuário
 escolha = int(input("Digite o número do estado desejado: "))
 
 if escolha in estados:
