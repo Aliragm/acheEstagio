@@ -51,6 +51,7 @@ estados = {
 title, link = [], []
 
 ##estagiotrainee
+
 driver = webdriver.Safari()
 driver.get("https://www.estagiotrainee.com/blog/categories/estágio")
 
@@ -83,7 +84,7 @@ for oportunity in oportunities:
         title.append(oportunity.text)
         link.append(oportunity['href'])
 
-##remotar https://remotar.com.br/search/jobs?t=10 div class = featured
+##remotar
 
 driver.get("https://remotar.com.br/search/jobs?t=10")
 scroll_down(driver)
