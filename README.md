@@ -21,6 +21,9 @@ Este projeto tem como objetivo centralizar e organizar oportunidades de estágio
 
 Atualmente, o projeto utiliza o **SafariDriver**, mas essa escolha é temporária. O driver será alterado para o do **Google Chrome**, **Edge** ou **Firefox** nas futuras atualizações.
 
+## Formato dos Resultados
+Por enquanto, os resultados estão sendo gerados em uma tabela HTML salva na mesma pasta do projeto. No entanto, está em estudo a opção de exportar os dados para um arquivo **Excel** ou formato similar, proporcionando uma manipulação mais prática dos resultados.
+
 ## Como Executar
 
 1. Certifique-se de ter o Python instalado em sua máquina.
