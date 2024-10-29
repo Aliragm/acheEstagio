@@ -1,12 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from urllib.parse import quote
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
-
-
 
 def scroll_down(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
