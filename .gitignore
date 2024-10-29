@@ -1,3 +1,4 @@
 *.html
+*.json
 .vscode
 .DS_Store

@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
-driver = webdriver.Safari()
-driver.get("https://www.estagiotrainee.com/blog/categories/estágio")
+
 
 def scroll_down(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
@@ -18,11 +17,6 @@ def scroll_down(driver):
         if new_height == last_height:
             break
         last_height = new_height
-
-scroll_down(driver)
-
-soup = BeautifulSoup(driver.page_source, 'html.parser')
-oportunities = soup.find_all('a', {'class':'O16KGI pu51Xe x_FPRX xs2MeC'})
 
 estados = {
     1: ['Acre', 'AC'],
@@ -54,6 +48,17 @@ estados = {
     27: ['Tocantins', 'TO']
 }
 
+title, link = [], []
+
+##estagiotrainee
+driver = webdriver.Safari()
+driver.get("https://www.estagiotrainee.com/blog/categories/estágio")
+
+scroll_down(driver)
+
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+oportunities = soup.find_all('a', {'class':'O16KGI pu51Xe x_FPRX xs2MeC'})
+
 print("Escolha o estado para buscar vagas de estágio:")
 for numero, estado in estados.items():
     print(f"{numero}. {estado[0]} ({estado[1]})")
@@ -66,19 +71,34 @@ if escolha in estados:
 else:
     print("Opção inválida.")
 
-title, link = [], []
+
 
 for oportunity in oportunities:
     driver.get(oportunity['href'])
     scroll_down(driver)
-    newSoup = BeautifulSoup(driver.page_source, 'html.parser')
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-    requisites = newSoup.find_all('ul', {'class':'jnuVW mcSBi'})
+    requisites = soup.find_all('ul', {'class':'jnuVW mcSBi'})
     if any(p in requisite.text for requisite in requisites for p in param):            
         title.append(oportunity.text)
         link.append(oportunity['href'])
+
+##remotar https://remotar.com.br/search/jobs?t=10 div class = featured
+
+driver.get("https://remotar.com.br/search/jobs?t=10")
+scroll_down(driver)
+
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+oportunities = soup.find_all('div', {'class':'featured'})
+
+for oportunity in oportunities:
+    titulo = oportunity.find('p', {'class': 'h1'}).text
+    href = oportunity.find('a')['href']
+    title.append(titulo)
+    link.append("https://remotar.com.br" + href)
 
 driver.quit()
 
 data = pd.DataFrame({'Titulo': title, 'Link': link})
 data.to_html('teste.html')
+data.to_json('teste.json')
