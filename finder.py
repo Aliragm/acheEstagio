@@ -1,6 +1,7 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
+from urllib.parse import quote
 import time
 
 def scroll_down(driver):
@@ -92,6 +93,20 @@ for oportunity in oportunities:
     href = oportunity.find('a')['href']
     title.append(titulo)
     link.append("https://remotar.com.br" + href)
+
+##gupy
+
+driver.get(f"https://portal.gupy.io/job-search/term=estágio&state={quote(param[0])}")
+scroll_down(driver)
+
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+oportunities = soup.find_all('a', {'class':'sc-4d881605-1 IKqnq'})
+
+for oportunity in oportunities:
+    titulo = oportunity.find('h3', {'class':'sc-bZkfAO gYfAYo sc-4d881605-4 dZRYPZ'}).text
+    href = oportunity['href']
+    title.append(titulo)
+    link.append(href)
 
 driver.quit()
 
