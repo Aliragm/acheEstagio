@@ -46,9 +46,21 @@ estados = {
 
 title, link = [], []
 
+##inicializacao do driver
+try:
+    driver = webdriver.Safari()
+    print("Driver do Safari detectado.")
+except Exception as e:
+    print("Safari não disponível:", e)
+
+try:
+    driver = webdriver.Edge()
+    print("Driver do Microsoft Edge detectado.")
+except Exception as e:
+    print("Microsoft Edge não disponível:", e)
+
 ##estagiotrainee
 
-driver = webdriver.Safari()
 driver.get("https://www.estagiotrainee.com/blog/categories/estágio")
 
 scroll_down(driver)
