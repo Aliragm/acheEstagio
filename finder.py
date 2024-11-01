@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.edge.options import Options as EdgeOptions
 from bs4 import BeautifulSoup
 import pandas as pd
 from urllib.parse import quote
@@ -51,13 +52,15 @@ try:
     driver = webdriver.Safari()
     print("Driver do Safari detectado.")
 except Exception as e:
-    print("Safari não disponível:", e)
+    print("Safari não disponível, tentandor outro driver...")
 
 try:
-    driver = webdriver.Edge()
+    edge_options = EdgeOptions()
+    edge_options.add_argument("--headless")
+    driver = webdriver.Edge(options=edge_options)
     print("Driver do Microsoft Edge detectado.")
 except Exception as e:
-    print("Microsoft Edge não disponível:", e)
+    print("Microsoft Edge não disponível...")
 
 ##estagiotrainee
 
@@ -125,3 +128,4 @@ driver.quit()
 data = pd.DataFrame({'Titulo': title, 'Link': link})
 data.to_html('teste.html')
 data.to_json('teste.json')
+print("Scrapping concluido, olhe a pasta para os resultados.")

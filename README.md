@@ -29,7 +29,7 @@ Por enquanto, os resultados estão sendo gerados em uma tabela HTML e um arquivo
 2. Instale as dependências necessárias:
    ```bash
    pip install selenium beautifulsoup4 pandas
-3. Baixe o driver da versão atual(https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari)
+3. Baixe o driver da versão atual (https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari) ou o driver do microsoft EDGE (https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver?form=MA13LH#downloads)
 4. Execute o script:
     ```bash
     python finder.py
