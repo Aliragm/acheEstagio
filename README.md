@@ -18,7 +18,7 @@ Este projeto tem como objetivo centralizar e organizar oportunidades de estágio
 
 ## Observação sobre o Driver
 
-Atualmente, o projeto utiliza o **SafariDriver**, mas essa escolha é temporária. O driver será alterado para o do **Google Chrome**, **Edge** ou **Firefox** nas futuras atualizações.
+Atualmente, o projeto utiliza o **SafariDriver** e **EdgeDriver**, por enquanto, essas serão as escolhas do projeto, visto que são navegadores bem gerais, para poder utilizar o projeto, baixe o driver do edge pelo link da seção *como executar* e coloque o arquivo executável na mesma pasta do projeto, para utilizar o driver do safari, ative a automatização do navegador pelas opções de desenvolvedor do safari. A utilização do Edge é mais rápida, pois, é utilizada em modo *headless*, coisa que não é possível com o safari.
 
 ## Formato dos Resultados
 Por enquanto, os resultados estão sendo gerados em uma tabela HTML e um arquivo JSON salvos na mesma pasta do projeto. No entanto, está em estudo a opção de exportar os dados para um arquivo **Excel** ou formato similar, proporcionando uma manipulação mais prática dos resultados.
