@@ -111,5 +111,5 @@ for oportunity in oportunities:
 driver.quit()
 
 data = pd.DataFrame({'Titulo': title, 'Link': link})
-data.to_html('teste.html')
-data.to_json('teste.json')
+data.to_html('Tabela.html')
+data.to_json('Tabela.json')
